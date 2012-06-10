@@ -53,25 +53,9 @@ namespace AgFx {
                     sw.Close();
                 }
             }
-            catch (NotSupportedException)
+            catch
             {
-                // sometimes this gets thrown from new StreamWriter...
-                // the innards of StreamWriter.ctor checkPosition, then SeekNotSuported gets raised.
-                // Wierd.
-
-            }
-            catch (IsolatedStorageException)
-            {
-            }
-            catch (ObjectDisposedException)
-            {
-            }
-            catch (ArgumentException)
-            {
-                // "Value does not fall within the expected range."
-            }
-            catch (IOException)
-            {
+                // IsolatedStorageFile throws many different kinds of errors and it's tough to track them all down, so we just ignore them all.
             }
 
         }
