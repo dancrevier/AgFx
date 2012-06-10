@@ -56,7 +56,7 @@ namespace AgFx {
             get {
                 return _loadingCount > 0;
             }
-            internal set {
+            set {
 
                 bool loading = IsLoading;
                 if (value) {
